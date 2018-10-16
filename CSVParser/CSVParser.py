@@ -25,7 +25,6 @@ for row in reader:
 print(spreadsheet)
 for row in spreadsheet[1:]:
     search = convert_string_to_search(row[2])
-    print(search)
     url = r'https://connectny.info/search~S0/?searchtype=l&searcharg=' + search
     tables = pd.read_html(url)
     library_table = []
@@ -33,7 +32,8 @@ for row in spreadsheet[1:]:
         if tables[i][0][0] == "Library":
             library_table = tables[i]
     library_other_than_rensalaer = False
-    for library in library_table[0]:
+    for library in library_table[0][1:]:
+        print(library)
         if (library != "Rensselaer"):
             library_other_than_rensalaer = True
     if library_other_than_rensalaer:
