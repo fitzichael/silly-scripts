@@ -1,5 +1,4 @@
 import csv
-import sys
 import pandas as pd
 
 def convert_string_to_search(string):
@@ -11,7 +10,8 @@ def convert_string_to_search(string):
             new_string += string[c]
     return new_string
 
-f = open(sys.argv[1])
+infile = input("Please enter the name of the input file: ")
+f = open('./'+ infile)
 reader = csv.reader(f)
 spreadsheet = []
 spreadsheet_iter = 0
