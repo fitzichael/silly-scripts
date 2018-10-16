@@ -22,7 +22,6 @@ for row in reader:
         row_to_add.append(row[i])
     spreadsheet.append(row_to_add)
     spreadsheet_iter += 1
-print(spreadsheet)
 for row in spreadsheet[1:]:
     search = convert_string_to_search(row[2])
     url = r'https://connectny.info/search~S0/?searchtype=l&searcharg=' + search
@@ -33,14 +32,12 @@ for row in spreadsheet[1:]:
             library_table = tables[i]
     library_other_than_rensalaer = False
     for library in library_table[0][1:]:
-        print(library)
         if (library != "Rensselaer"):
             library_other_than_rensalaer = True
     if library_other_than_rensalaer:
         row[1] = 'y'
     else:
         row[1] = 'n'
-print(spreadsheet)
 
 
 #writing to the csv afterwards
