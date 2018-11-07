@@ -39,6 +39,7 @@ for row in spreadsheet[1:]:
             if (library != "Rensselaer"):
                 library_other_than_rensalaer = True
     except IndexError:
+        row[1] = 'x'
         continue
     if library_other_than_rensalaer:
         row[1] = 'y'
